@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import SearchPage from "./pages/events/SearchPage";
 import EventPage from "./pages/events/EventPage";
 import ArtistPage from "./pages/events/ArtistPage";
+import './index.css';
 
 const App = () => {
   const { eventId, artistId } = useParams();
