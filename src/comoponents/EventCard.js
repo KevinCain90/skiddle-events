@@ -3,8 +3,6 @@ import { FaCalendar, FaMapPin  } from 'react-icons/fa'
 import { format } from "date-fns";
 
 const EventCard = (details) => {
-
-    console.log(details)
     return (
             <div className="max-w-sm rounded-sm shadow-lg border border-neutral-200 text-gray-500">
                 <img className="h-56 w-full" src={details.details.imageurl} alt="Event" />
