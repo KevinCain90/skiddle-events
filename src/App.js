@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useParams } from 'react-router-dom';
+import SearchPage from "./pages/events/SearchPage";
+import EventPage from "./pages/events/EventPage";
+import ArtistPage from "./pages/events/ArtistPage";
 
-function App() {
+const App = () => {
+  const { eventId, artistId } = useParams();
+
+  const renderPage = (eventId, artistId) => {
+    if (eventId) {
+      return <EventPage id={eventId} />;
+    } else if (artistId) {
+      return <ArtistPage id={artistId} />;
+    } else {
+      return <SearchPage />;
+    }
+  }
+
   return (
-    <div className="App">
-      <header className='text-3xl font-bold underline'>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>{renderPage(eventId, artistId)}</div>
   );
 }
 
