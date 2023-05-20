@@ -1,13 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import getEvents from '../../../services/getEvents'
+import EventCard from '../../../comoponents/EventCard'; 
 
 const SearchPage = () => {
-    const [searchInput, setSearchInput] = useState("")
+    const [searchInput, setSearchInput] = useState("");
+    const [searchResults, setSearchResults] = useState("");
 
     const handleChange = (e) => {
       setSearchInput(e.target.value)
     }
 
+    useEffect(() => {
+        getEvents(searchInput).then(data => {
+            setSearchResults(data);
+        });
+    }, [searchInput]);
+
     return ( 
+        <>
         <div className="w-full bg-teal-400 flex justify-center flex-col items-center">
             <img className="h-[180px] w-[400px]"
                 src="https://d1plawd8huk6hh.cloudfront.net/assets/logo/png/skiddle-logo-white-landscape.png"
@@ -21,6 +31,16 @@ const SearchPage = () => {
                 onChange={handleChange}
             />
         </div>
+        <div className='w-full'>
+            {searchResults && searchResults.length > 0 ?
+                searchResults.map(event => (
+                    <EventCard details={event} />
+                ))
+            : 
+                <div className='text-lg p-4 flex justify-center'>No results available, please try another search.</div>
+            }
+        </div>
+     </>
     )
 }
 
