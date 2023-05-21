@@ -30,15 +30,13 @@ const SearchPage = () => {
                     onChange={handleChange}
                 />
             </div>
-            <div className='my-8'>
+            <div className='my-8 container m-auto grid grid-cols-3 gap-4'>
                 {searchResults && searchResults.length > 0 ?
                     searchResults.map(event => (
-                        <div class="container m-auto grid grid-cols-3 gap-4">
-                          <EventCard details={event} key={event.id}/>
-                        </div>
+                        <EventCard details={event} key={event.id}/>
                     ))
                 : 
-                    <div className='text-lg p-4 flex justify-center'>No results available, please try another search.</div>
+                    <div className='text-lg p-4'>No results available, please try another search.</div>
                 }
             </div>
         </>

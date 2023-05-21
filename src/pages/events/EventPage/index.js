@@ -33,8 +33,8 @@ const EventPage = () => {
                 </p>
                 <p className='mb-2 font-bold'>Date: {DateTime.fromISO(eventDetails.startdate).toFormat('dd MMM, yyyy')}</p>
                 <p className='mb-2 font-bold'>Minimum age: {eventDetails.MinAge ? eventDetails.MinAge : 'N/A'}</p>
-                <p className='mb-6 w-[45%] flex justify-ce'>{eventDetails.description}</p>
-                {eventDetails.artists && (
+                <p className='mb-6 w-[45%] flex justify-center'>{eventDetails.description}</p>
+                {eventDetails.artists.length > 0 && (
                     <>
                         <h2 className='text-xl'>Performing artists: </h2>
                         <span>Click an artist to see more</span>
@@ -59,7 +59,7 @@ const EventPage = () => {
               </div>
             </div>
           ) : (
-            <div className='text-lg p-4 flex justify-center'>No event details available, please try another search.</div>
+            <div className='text-lg p-4 flex justify-center'>Loading...</div>
           )
     )
 }
