@@ -15,8 +15,6 @@ const ArtistPage = () => {
         });
     }, [artistId]);
 
-    console.log(artistDetails)
-
     return ( 
         <div className="flex justify-center items-center flex-wrap">
             <div className="flex flex-col justify-center items-center">

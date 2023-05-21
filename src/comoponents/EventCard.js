@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { FaCalendar, FaMapPin  } from 'react-icons/fa'
-import { format } from "date-fns";
+import { FaCalendar, FaMapPin  } from 'react-icons/fa';
+import { DateTime } from "luxon";
 
 const EventCard = (details) => {
     return (
@@ -17,7 +17,7 @@ const EventCard = (details) => {
                     </p>
                     <p className='mb-6 flex items-center text-sm'>
                         <FaCalendar className="mr-2"/>
-                        {details.details.startdate} {/* need to format this */}
+                        {DateTime.fromISO(details.details.startdate).toFormat('dd MMM, yyyy')}
                     </p>
                     <NavLink to={`/event/${details.details.id}`}>
                         <button className="rounded-md h-[50px] w-full border-none bg-teal-400 text-white">View details</button>
