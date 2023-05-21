@@ -16,7 +16,7 @@ const EventPage = () => {
 
     return ( 
         eventDetails && eventDetails.venue ? (
-            <div className="flex flex-row justify-center items-center flex-wrap">
+            <div className="items-center flex-wrap">
               <div className="flex flex-col justify-center items-center">
                 <div className="flex flex-col justify-center items-center bg-teal-400 p-2 min-w-full text-white mb-4">
                   <NavLink to={'/'}>
@@ -30,9 +30,9 @@ const EventPage = () => {
                 <p className='mb-2 flex items-center text-base font-bold'>
                   Location: {eventDetails.venue.name} in {eventDetails.venue.cityname}
                 </p>
-                <p className='mb-2 flex items-center text-base font-bold'>Date: {eventDetails.startdate}</p>
-                <p className='mb-2 flex items-center text-base font-bold'>Minimum age: {eventDetails.MinAge ? eventDetails.MinAge : 'N/A'}</p>
-                <p className='flex items-center text-base mb-6'>{eventDetails.description}</p>
+                <p className='mb-2 font-bold'>Date: {eventDetails.startdate}</p>
+                <p className='mb-2 font-bold'>Minimum age: {eventDetails.MinAge ? eventDetails.MinAge : 'N/A'}</p>
+                <p className='mb-6'>{eventDetails.description}</p>
                 <div className="grid grid-cols-3 gap-4 mb-10">
                   {eventDetails.artists
                     ? eventDetails.artists.map(artist => (
