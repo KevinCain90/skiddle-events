@@ -36,7 +36,7 @@ const SearchPage = () => {
                         <EventCard details={event} key={event.id}/>
                     ))
                 : 
-                    <div className='text-lg p-4'>No results available, please try another search.</div>
+                    <div className='text-lg p-4'>Search artists or events...</div>
                 }
             </div>
         </>
