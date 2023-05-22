@@ -37,3 +37,4 @@ Once completed, run:
 - Add more tests based on the user journey of the site
 - Focus on refining the mobile view of the site
 - Add a breadcrumb menu to navigate the site in a better way
+- Add typescript for better type safety and error checking
